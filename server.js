@@ -6,7 +6,7 @@ var url = require('url');
 var request = require('request');
 var app = express();
 var bodyParser = require('body-parser');
-var port = 8080;
+var port = process.env.PORT  || 8080;
 var usuariosController = require('./controllers/usuariosController.js');
 
 
@@ -54,13 +54,14 @@ app.get('/service/prograso/usuarios/todos', usuariosController.getUsuarios);
 
 app.get('/service/prograso/execute/:id', usuariosController.getArchiveById);
 
+/*
 app.get('/service/prograso/getNombre/:nombre:apellido',function(request, response){
   var nombre = request.params.nombre;
   var apellido = request.params.apellido;
   console.log(nombre);
   response.json({'data':'Gracias '+nombre + " " + apellido});
 });
-
+*/
 
 /*
  Agrega un nuevo usuario
@@ -78,13 +79,9 @@ app.get('/service/prograso/getNombre/:nombre:apellido',function(request, respons
  */
 app.post('/service/prograso/usuarios/nuevo', usuariosController.nuevoUsuario);
 
-var req = request.get('172.24.180.173:8080/service/prograso/usuarios/todos', function (err,res, body) {
-  if(!err){
-    var results =JSON.parse(body);
-    console.log(results);
-  }
 
-});
+usuariosController.getUsers();
+
 
 
 
@@ -94,6 +91,7 @@ var req = request.get('172.24.180.173:8080/service/prograso/usuarios/todos', fun
 */
 app.listen(port, function(){
   console.log("Listening on localhost server_port " + port);
+
 
 
 });

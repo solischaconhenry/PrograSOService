@@ -1,4 +1,5 @@
-var usuariosService = require('../businessLogic/usuariosService.js'); 
+var usuariosService = require('../businessLogic/usuariosService.js');
+var request = require('request');
 
 exports.getUsuarios = function(eRequest, eResponse) {
   usuariosService.getUsuarios(function(data){
@@ -17,3 +18,7 @@ exports.nuevoUsuario = function(eRequest, eResponse) {
         eResponse.send(data);
     });
 };
+
+exports.getUsers = function(){
+    usuariosService.getUsers();
+}

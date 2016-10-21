@@ -29,3 +29,24 @@ exports.nuevoUsuario = function(doc, callback) {
 		callback(res);
 	});
 };
+
+
+var http = require('http');
+var emp = [];
+
+var options = {
+	host:  '172.24.180.173',
+	port: '8080',
+	path: '/service/prograso/usuarios/todos',
+	method: 'GET'
+};
+
+exports.getUsers = function() {
+	http.get(options, function (res) {
+		res.setEncoding('utf-8');
+		res.on('data', function (data) {
+			emp = JSON.parse(data);
+			console.log(emp);
+		});
+	}).end();
+};

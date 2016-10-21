@@ -1,0 +1,19 @@
+<div class="file-upload">
+    <input type="file" file-model="myFile"/>
+    <button ng-click="uploadFile()">Cargar</button>
+    <button ng-show="svg" ng-click="save()">Guardar en BD</button>
+</div>
+
+<svg 
+     ng-show = "svg"
+     width="500" 
+     height="500" 
+     style="border:2px groove #0455BF">
+
+    <polygon 
+             ng-repeat="coordenadas in json"
+             ng-attr-points="{{coordenadas.puntos}}"
+             style="fill:#26C281;stroke:black;stroke-width:1" />
+
+</svg>
+

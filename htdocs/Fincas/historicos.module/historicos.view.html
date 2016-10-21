@@ -1,0 +1,41 @@
+<select ng-change="change()" ng-options="finca.gid as finca.gid for finca in fincas" ng-model="gidFinca" class="form-control">
+    <option style="display:none" value="">Seleccione una Finca</option>
+</select>
+
+
+<svg 
+     width="500" 
+     height="500" 
+     style="border:2px groove #0455BF">
+
+    <polygon 
+             ng-click="unir(coordenadas.gid, coordenadas.puntos)"
+             ng-repeat="coordenadas in json"
+             ng-attr-points="{{coordenadas.puntos}}"
+             style="fill:#26C281;stroke:black;stroke-width:1" />
+
+</svg>
+<h4>{{numHistoricoActual}}</h4>
+<button ng-click="AnteriorFinca()">Anterior Finca</button>
+<button ng-click="siguienteFinca()">Siguiente Finca</button>
+
+
+<br>
+<br>
+<br>
+<p>El id del aparto a editar: {{gidAparto}}</p>
+<svg 
+     width="500" 
+     height="500" 
+     style="border:2px groove #0455BF">
+
+    <polygon 
+             ng-click="unir(coordenadas.gid, coordenadas.puntos)"
+             ng-repeat="coordenadas in jsonSeleccionado"
+             ng-attr-points="{{coordenadas.puntos}}"
+             style="fill:#0455BF;stroke:black;stroke-width:1" />
+
+</svg>
+
+<button ng-click="AnteriorAparto()">Anterior Aparto</button>
+<button ng-click="siguienteAparto()">Siguiente Aparto</button>

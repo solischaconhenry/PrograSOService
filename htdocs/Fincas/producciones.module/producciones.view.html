@@ -1,0 +1,80 @@
+<select ng-change="change()" ng-options="finca.gid as finca.gid for finca in fincas" ng-model="gidFinca" class="form-control">
+    <option style="display:none" value="">Seleccione una Finca</option>
+</select>
+
+
+<svg
+     width="500"
+     height="500"
+     style="border:2px groove #0455BF">
+
+    <polygon
+             ng-click="unir(coordenadas.gid, coordenadas.puntos)"
+             ng-repeat="coordenadas in json"
+             ng-attr-points="{{coordenadas.puntos}}"
+             style="fill:#26C281;stroke:black;stroke-width:1" />
+
+</svg>
+<h4>{{numHistoricoActual}}</h4>
+<button ng-click="AnteriorFinca()">Anterior Finca</button>
+<button ng-click="siguienteFinca()">Siguiente Finca</button>
+
+
+<br>
+<br>
+<br>
+<p>El id del aparto a editar: {{gidAparto}}</p>
+<svg
+     width="500"
+     height="500"
+     style="border:2px groove #0455BF">
+
+    <polygon
+             ng-click="unir(coordenadas.gid, coordenadas.puntos)"
+             ng-repeat="coordenadas in jsonSeleccionado"
+             ng-attr-points="{{coordenadas.puntos}}"
+             style="fill:#0455BF;stroke:black;stroke-width:1" />
+
+</svg>
+
+<button ng-click="AnteriorAparto()">Anterior Aparto</button>
+<button ng-click="siguienteAparto()">Siguiente Aparto</button>
+
+
+<p>El id del aparto a editar: {{apartoGid}}</p>
+
+<table class="table" ng-if="gidFinca">
+  <tr>
+    <th>Provincia</th>
+    <th>Cantón</th>
+    <th>Distrito</th>
+    <th>Dirección Exacta</th>
+    <th>Latitud</th>
+    <th>Longitud</th>
+    <th>Codigo Finca</th>
+    <th>Nombre Productor</th>
+  </tr>
+  <tr>
+    <td>{{dataFinca.provincia}}</td>
+    <td>{{dataFinca.canton}}</td>
+    <td>{{dataFinca.distrito}}</td>
+    <td>{{dataFinca.direccionexacta}}</td>
+    <td>{{dataFinca.latitud}}</td>
+    <td>{{dataFinca.longitud}}</td>
+    <td>{{dataFinca.codigofinca}}</td>
+    <td>{{dataFinca.nombreproductor}}</td>
+  </tr>
+</table>
+
+<table class="table" ng-if="apartoAtual">
+  <tr>
+    <th>IDAparto</th>
+    <th>Tipo de Actividades</th>
+    <th>Distribución del Trabajo</th>
+  </tr>
+  <tr>
+    <td>{{dataAparto.idaparto}}</td>
+    <td>{{dataAparto.distribuciontrabajo}}</td>
+    <td>{{dataAparto.nombre}}</td>
+  </tr>
+</table>

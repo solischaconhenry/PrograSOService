@@ -2,10 +2,9 @@
 	"title"    : "Archivo configuración de MongoDB",
 	"description": "Archivo de configuración con los parámetros necesarios para establecer la conexión a mongodb",
 	"params"     : {
-		"host": 		"localhost" ,
-		"port":		27017,
-		"user": 		"",
-		"password" : 	"",
-		"database": 	"prograSO"
+		"host": 		"mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/" ,
+		"user": 		"admin",
+		"password" : 	"Ib_8sylccWC1",
+		"database": 	"slave1so"
 	} 
 }

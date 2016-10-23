@@ -13,7 +13,7 @@ var usuariosController = require('./controllers/usuariosController.js');
 
 //-------------------------------------------------------------------------
 
-//app.use(express.static(__dirname + '/htdocs'));
+app.use(express.static(__dirname + '/htdocs'));
 app.use('/styles', express.static(__dirname + '/node_modules/bootstrap/dist/css/'));
 app.use('/scripts',  express.static(__dirname + '/node_modules/bootstrap/dist/js/'));
 app.use('/scripts',  express.static(__dirname + '/node_modules/angular/'));
@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
 
+app.use(bodyParser.text({ type: 'text/html' }))
 
 
 //define ubición del directorio principal
@@ -83,7 +84,7 @@ app.get('/service/prograso/getNombre/:nombre:apellido',function(request, respons
  */
 app.post('/service/prograso/usuarios/nuevo', usuariosController.nuevoUsuario)
 
-//app.get('/index.html', usuariosController.getPages);
+app.get('/test/:page', usuariosController.getPages);
 
 
 

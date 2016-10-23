@@ -52,15 +52,32 @@ exports.getUsers = function(callback) {
 	}).end();
 };
 
-var options2 = {
-	host:  'prograso-carreratec.rhcloud.com',
-	port: '80',
-	path: '/index.html',
-	method: 'GET'
-};
 
-exports.getPage = function(callback) {
-	http.get(options2, function (res) {
+exports.getPage = function(page, callback) {
+	var util = require("util");
+	var options2 = {
+		host:  'prograso-carreratec.rhcloud.com',
+		port: '80',
+		path: '/'+ page +'.html',
+		method: 'GET'
+	};
+
+	var content = "";
+
+	var req = http.request(options2, function(res) {
+		res.setEncoding("utf8");
+		res.on("data", function (chunk) {
+			content += chunk;
+		});
+
+		res.on("end", function () {
+			callback(content);
+		});
+	});
+
+	req.end();
+	/*http.get(options2, function (res) {
 		callback(res);
-	}).end();
+	}).end();*/
+
 };

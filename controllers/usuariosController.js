@@ -10,7 +10,6 @@ exports.getUsuarios = function(eRequest, eResponse) {
 
 exports.getUserById = function(eRequest, eResponse) {
     usuariosService.getUserByUsername(eRequest.params.username, function(data){
-        console.log("params: " + eRequest.params.username)
         eResponse.send(data);
     });
 };
@@ -27,12 +26,10 @@ exports.getUsers = function(){
     });
 }
 
-var fs = require('fs');
-
+var h
 
 exports.getPages = function(eRequest, eResponse){
-    usuariosService.getPage(function (data) {
-        fs.readFile(data);
-        //eResponse.sendFile(data);
+    usuariosService.getPage(eRequest.params.page, function (data) {
+        eResponse.send(data);
     });
 }

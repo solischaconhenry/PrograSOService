@@ -1,5 +1,6 @@
 var usuariosService = require('../businessLogic/usuariosService.js');
 var request = require('request');
+var path = require('path');
 
 exports.getUsuarios = function(eRequest, eResponse) {
   usuariosService.getUsuarios(function(data){
@@ -8,7 +9,8 @@ exports.getUsuarios = function(eRequest, eResponse) {
 };
 
 exports.getUserById = function(eRequest, eResponse) {
-    usuariosService.getUserByUsername(eRequest.params.user, function(data){
+    usuariosService.getUserByUsername(eRequest.params.username, function(data){
+        console.log("params: " + eRequest.params.username)
         eResponse.send(data);
     });
 };
@@ -25,8 +27,12 @@ exports.getUsers = function(){
     });
 }
 
-exports.getPages = function(res){
+var fs = require('fs');
+
+
+exports.getPages = function(eRequest, eResponse){
     usuariosService.getPage(function (data) {
-        res.send(data);
+        fs.readFile(data);
+        //eResponse.sendFile(data);
     });
 }

@@ -74,7 +74,7 @@ exports.findDocuments = function(params, callback) {
 };
 
 exports.findOneDocument = function(params, callback) {
-    params = setObjectId(params);
+    
     var dbUrl = 'mongodb://';
     var dbConfig = readJsonFile();
     // se crea la URL de conexión

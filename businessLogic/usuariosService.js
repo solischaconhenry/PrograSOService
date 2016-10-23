@@ -11,9 +11,9 @@ exports.getUsuarios = function(callback) {
 	});
 };
 
-exports.getUserByUsername = function(user, callback) {
+exports.getUserByUsername = function(username, callback) {
 	var params = {
-		query: {user: user},
+		query: {username: username},
 		collection: 'users'
 	};
 	repository.getDocument(params, function(data){

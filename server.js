@@ -30,6 +30,8 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
 //app.use('/', express.static(__dirname + '/app'));
 
 app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
@@ -54,7 +56,7 @@ Devuelve todos los usuarios
 
 app.get('/service/prograso/usuarios/todos', usuariosController.getUsuarios);
 
-app.get('/service/prograso/execute/:id', usuariosController.getUserById);
+app.get('/service/prograso/execute/:username', usuariosController.getUserById);
 
 /*
 app.get('/service/prograso/getNombre/:nombre:apellido',function(request, response){
@@ -79,7 +81,9 @@ app.get('/service/prograso/getNombre/:nombre:apellido',function(request, respons
  statusCode // éxito: 200, fracaso: 400
  }
  */
-app.get('/index.html', usuariosController.getPages);
+app.post('/service/prograso/usuarios/nuevo', usuariosController.nuevoUsuario)
+
+//app.get('/index.html', usuariosController.getPages);
 
 
 

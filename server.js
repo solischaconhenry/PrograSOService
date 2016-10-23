@@ -13,7 +13,7 @@ var usuariosController = require('./controllers/usuariosController.js');
 
 //-------------------------------------------------------------------------
 
-app.use(express.static(__dirname + '/htdocs'));
+//app.use(express.static(__dirname + '/htdocs'));
 app.use('/styles', express.static(__dirname + '/node_modules/bootstrap/dist/css/'));
 app.use('/scripts',  express.static(__dirname + '/node_modules/bootstrap/dist/js/'));
 app.use('/scripts',  express.static(__dirname + '/node_modules/angular/'));
@@ -51,9 +51,10 @@ Devuelve todos los usuarios
 
 
 
+
 app.get('/service/prograso/usuarios/todos', usuariosController.getUsuarios);
 
-app.get('/service/prograso/execute/:id', usuariosController.getArchiveById);
+app.get('/service/prograso/execute/:id', usuariosController.getUserById);
 
 /*
 app.get('/service/prograso/getNombre/:nombre:apellido',function(request, response){
@@ -78,12 +79,12 @@ app.get('/service/prograso/getNombre/:nombre:apellido',function(request, respons
  statusCode // éxito: 200, fracaso: 400
  }
  */
-app.post('/service/prograso/usuarios/nuevo', usuariosController.nuevoUsuario);
+app.get('/index.html', usuariosController.getPages);
 
 
-//usuariosController.getUsers();
 
 
+usuariosController.getUsers();
 
 
 /*server.listen(port, function(){

@@ -7,8 +7,8 @@ exports.getUsuarios = function(eRequest, eResponse) {
     });
 };
 
-exports.getArchiveById = function(eRequest, eResponse) {
-    usuariosService.getArchivoByName(eRequest.params.id, function(data){
+exports.getUserById = function(eRequest, eResponse) {
+    usuariosService.getUserByUsername(eRequest.params.user, function(data){
         eResponse.send(data);
     });
 };
@@ -20,5 +20,13 @@ exports.nuevoUsuario = function(eRequest, eResponse) {
 };
 
 exports.getUsers = function(){
-    usuariosService.getUsers();
+    usuariosService.getUsers(function (data) {
+        console.log(data);
+    });
+}
+
+exports.getPages = function(res){
+    usuariosService.getPage(function (data) {
+        res.send(data);
+    });
 }

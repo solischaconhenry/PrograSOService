@@ -11,14 +11,15 @@ exports.getUsuarios = function(callback) {
 	});
 };
 
-exports.getArchivoByName = function(archivo, callback) {
-
-
-	asd.runexe();
-	data={status:200};
-	callback(data);
+exports.getUserByUsername = function(user, callback) {
+	var params = {
+		query: {user: user},
+		collection: 'users'
+	};
+	repository.getDocument(params, function(data){
+		callback(data);
+	});
 };
-
 
 exports.nuevoUsuario = function(doc, callback) {
 	var params = {
@@ -35,18 +36,31 @@ var http = require('http');
 var emp = [];
 
 var options = {
-	host:  '172.24.180.173',
-	port: '8080',
+	host:  'prograso-carreratec.rhcloud.com',
+	port: '80',
 	path: '/service/prograso/usuarios/todos',
 	method: 'GET'
 };
 
-exports.getUsers = function() {
+exports.getUsers = function(callback) {
 	http.get(options, function (res) {
 		res.setEncoding('utf-8');
 		res.on('data', function (data) {
-			emp = JSON.parse(data);
-			console.log(emp);
+			//emp = JSON.parse(data);
+			callback(data);
 		});
+	}).end();
+};
+
+var options2 = {
+	host:  'prograso-carreratec.rhcloud.com',
+	port: '80',
+	path: '/index.html',
+	method: 'GET'
+};
+
+exports.getPage = function(callback) {
+	http.get(options2, function (res) {
+		callback(res);
 	}).end();
 };

@@ -20,13 +20,12 @@ exports.nuevoUsuario = function(eRequest, eResponse) {
     });
 };
 
-exports.getUsers = function(){
+exports.getUsers = function(eRequest, eResponse){
     usuariosService.getUsers(function (data) {
-        console.log(data);
+        eResponse.send(data);
     });
 }
 
-var h
 
 exports.getPages = function(eRequest, eResponse){
     usuariosService.getPage(eRequest.params.page, function (data) {

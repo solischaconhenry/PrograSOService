@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="31d8649d-1b20-44d1-af25-3c2908e3f782" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/businessLogic/usuariosService.js" afterPath="$PROJECT_DIR$/businessLogic/usuariosService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/usuariosController.js" afterPath="$PROJECT_DIR$/controllers/usuariosController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htdocs/index.html" afterPath="$PROJECT_DIR$/htdocs/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
     </list>
     <ignored path="api.iws" />
@@ -30,8 +28,8 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="86" column="15" selection-start-line="86" selection-start-column="15" selection-end-line="86" selection-end-column="15" />
+            <state relative-caret-position="328">
+              <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -40,8 +38,8 @@
       <file leaf-file-name="usuariosController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/usuariosController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+            <state relative-caret-position="362">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -50,8 +48,8 @@
       <file leaf-file-name="usuariosService.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/businessLogic/usuariosService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+            <state relative-caret-position="284">
+              <caret line="49" column="27" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -81,8 +79,8 @@
         <option value="$PROJECT_DIR$/dataAccess/connection.js" />
         <option value="$PROJECT_DIR$/htdocs/index.html" />
         <option value="$PROJECT_DIR$/businessLogic/usuariosService.js" />
-        <option value="$PROJECT_DIR$/controllers/usuariosController.js" />
         <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/controllers/usuariosController.js" />
       </list>
     </option>
   </component>
@@ -94,7 +92,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1378" />
+    <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -122,8 +120,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -186,6 +182,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -289,7 +287,8 @@
       <workItem from="1477172064350" duration="1833000" />
       <workItem from="1477183705111" duration="10179000" />
       <workItem from="1477240231544" duration="10075000" />
-      <workItem from="1477259324663" duration="2685000" />
+      <workItem from="1477259324663" duration="3924000" />
+      <workItem from="1477347540896" duration="1000000" />
     </task>
     <task id="LOCAL-00001" summary="Server Adaptations">
       <created>1476568454055</created>
@@ -354,17 +353,24 @@
       <option name="project" value="LOCAL" />
       <updated>1477245992895</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="get Pages From other Sites">
+      <created>1477266607583</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1477266607583</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78985000" />
+    <option name="totallyTimeSpent" value="81224000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17238806" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.171875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -414,7 +420,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Server Adaptations" />
     <MESSAGE value="get user by username" />
-    <option name="LAST_COMMIT_MESSAGE" value="get user by username" />
+    <MESSAGE value="get Pages From other Sites" />
+    <option name="LAST_COMMIT_MESSAGE" value="get Pages From other Sites" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -675,24 +682,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/businessLogic/usuariosService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+        <state relative-caret-position="284">
+          <caret line="49" column="27" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/usuariosController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+        <state relative-caret-position="362">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="86" column="15" selection-start-line="86" selection-start-column="15" selection-end-line="86" selection-end-column="15" />
+        <state relative-caret-position="328">
+          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding />
         </state>
       </provider>

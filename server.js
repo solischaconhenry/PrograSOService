@@ -89,7 +89,7 @@ app.get('/test/:page', usuariosController.getPages);
 
 
 
-usuariosController.getUsers();
+app.get('/service/prograso/nube/todos',usuariosController.getUsers)
 
 
 /*server.listen(port, function(){

@@ -81,3 +81,37 @@ exports.getPage = function(page, callback) {
 	}).end();*/
 
 };
+
+exports.getUserByUser = function(username,callback) {
+	var optionsByUser = {
+		host:  'prograso-carreratec.rhcloud.com',
+		port: '80',
+		path: '/service/prograso/execute/'+username,
+		method: 'GET'
+	};
+	http.get(optionsByUser, function (res) {
+		res.setEncoding('utf-8');
+		res.on('data', function (data) {
+			//emp = JSON.parse(data);
+			callback(data);
+		});
+	}).end();
+};
+
+
+
+exports.newUsuario = function(body,callback) {
+	var optionsNuevo = {
+		host:  'prograso-carreratec.rhcloud.com',
+		port: '80',
+		path: '/service/prograso/usuarios/nuevo/'+body,
+		method: 'POST'
+	};
+	http.get(optionsNuevo, function (res) {
+		res.setEncoding('utf-8');
+		res.on('data', function (data) {
+			//emp = JSON.parse(data);
+			callback(data);
+		});
+	}).end();
+};

@@ -91,6 +91,11 @@ app.get('/test/:page', usuariosController.getPages);
 
 app.get('/service/prograso/nube/todos',usuariosController.getUsers)
 
+app.get('/service/prograso/nube/execute/:username', usuariosController.getUserByIdUser);
+
+app.post('/service/prograso/nube/usuarios/nuevo', usuariosController.newUser);
+
+app.get('/service/execute/:name',usuariosController.callExe)
 
 /*server.listen(port, function(){
   console.log('Server listening on port: ' + port);

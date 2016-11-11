@@ -24,21 +24,25 @@ app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
 
-app.use(bodyParser.text({ type: 'text/html' }))
 
 
 //define ubición del directorio principal
 //app.use('/', express.static(__dirname + '/app'));
 
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
 //End: Server configuration
 
 //Start: Routing
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "localhost:8080");
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
+  next();
+});
 
 
 /*
@@ -51,13 +55,9 @@ Devuelve todos los usuarios
         }
   */
 
-
-
-
-
 app.get('/service/prograso/usuarios/todos', usuariosController.getUsuarios);
 
-app.get('/service/prograso/execute/:username', usuariosController.getUserById);
+app.get('/service/prograso/execute/:id', usuariosController.getArchiveById);
 
 /*
 app.get('/service/prograso/getNombre/:nombre:apellido',function(request, response){
@@ -82,20 +82,16 @@ app.get('/service/prograso/getNombre/:nombre:apellido',function(request, respons
  statusCode // éxito: 200, fracaso: 400
  }
  */
-app.post('/service/prograso/usuarios/nuevo', usuariosController.nuevoUsuario)
+app.post('/service/prograso/usuarios/nuevo', usuariosController.nuevoUsuario);
 
-app.get('/test/:page', usuariosController.getPages);
+/*
+//usuariosController.getUsers();
 
-
-
-
-app.get('/service/prograso/nube/todos',usuariosController.getUsers)
-
-app.get('/service/prograso/nube/execute/:username', usuariosController.getUserByIdUser);
-
-app.post('/service/prograso/nube/usuarios/nuevo', usuariosController.newUser);
-
-app.get('/service/execute/:name',usuariosController.callExe)
+app.set('view engine', 'jade');
+app.get('/test', function(req, res) {
+  res.sendfile('htdocs/test.html', {root: __dirname })
+});
+*/
 
 /*server.listen(port, function(){
   console.log('Server listening on port: ' + port);

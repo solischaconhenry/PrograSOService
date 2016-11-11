@@ -1,15 +1,28 @@
-var fs = require('fs'); 
+var fs = require('fs');
 var MongoClient = require('mongodb').MongoClient,
              ObjectID = require('mongodb').ObjectID;
+
+
 
 var readJsonFile = function() {
     //Se lee el archivo de configuración de la base de datos
     var connectionParams = fs.readFileSync("./configuration.json");
-    var dbConfig = {};
+    var dbConfig = "";
+    var data = {};
 
     try {
         //se convierte a JSON
-        dbConfig = JSON.parse(connectionParams);
+        // if OPENSHIFT env variables are present, use the available connection info:
+        if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
+            dbConfig = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+                process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+                process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+                process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+                process.env.OPENSHIFT_APP_NAME;
+        }else {
+            data = JSON.parse(connectionParams);
+            dbConfig = data.params.host + ':'+  data.params.port + '/' + data.params.database;
+        }
     } 
     catch (err) {
         console.log(err);
@@ -34,8 +47,11 @@ exports.findDocuments = function(params, callback) {
     */
     var dbUrl = 'mongodb://';
     var dbConfig = readJsonFile();
-    // se crea la URL de conexión
-    dbUrl = dbUrl.concat(dbConfig.params.host , ':',  dbConfig.params.port,  '/' , dbConfig.params.database);
+    // se crea la URL de conexión//mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/
+
+    dbUrl = dbUrl.concat(dbConfig);
+    console.log("URL:" + dbUrl);
+
     // Usa el método connect para conectar al servidor
     MongoClient.connect(dbUrl, function(err, db){
         //se recupera la colección requerida
@@ -74,11 +90,11 @@ exports.findDocuments = function(params, callback) {
 };
 
 exports.findOneDocument = function(params, callback) {
-    
+    params = setObjectId(params);
     var dbUrl = 'mongodb://';
     var dbConfig = readJsonFile();
     // se crea la URL de conexión
-    dbUrl = dbUrl.concat(dbConfig.params.host , ':',  dbConfig.params.port,  '/' , dbConfig.params.database);
+    dbUrl = dbUrl.concat(dbConfig);
     // Usa el método connect para conectar al servidor
     MongoClient.connect(dbUrl, function(err, db){
         //se recupera la colección requerida
@@ -122,7 +138,7 @@ exports.insertOneDocument = function(params, callback) {
     var dbUrl = 'mongodb://';
     var dbConfig = readJsonFile();
     // se crea la URL de conexión
-    dbUrl = dbUrl.concat(dbConfig.params.host , ':',  dbConfig.params.port,  '/' , dbConfig.params.database);
+    dbUrl = dbUrl.concat(dbConfig);
 
     // Usa el método connect para conectar al servidor
     MongoClient.connect(dbUrl, function(err, db){
@@ -157,7 +173,7 @@ exports.insertDocuments = function(params, callback) {
     var dbUrl = 'mongodb://';
     var dbConfig = readJsonFile();
     // se crea la URL de conexión
-    dbUrl = dbUrl.concat(dbConfig.params.host , ':',  dbConfig.params.port,  '/' , dbConfig.params.database);
+    dbUrl = dbUrl.concat(dbConfig);
 
     // Usa el método connect para conectar al servidor
     MongoClient.connect(dbUrl, function(err, db){
@@ -200,7 +216,7 @@ exports.updateOneDocument = function(params, callback) {
     var dbUrl = 'mongodb://';
     var dbConfig = readJsonFile();
     // se crea la URL de conexión
-    dbUrl = dbUrl.concat(dbConfig.params.host , ':',  dbConfig.params.port,  '/' , dbConfig.params.database);
+    dbUrl = dbUrl.concat(dbConfig);
 
     // Usa el método connect para conectar al servidor
     MongoClient.connect(dbUrl, function(err, db){
@@ -234,7 +250,7 @@ exports.deleteOneDocument = function(params, callback) {
     var dbUrl = 'mongodb://';
     var dbConfig = readJsonFile();
     // se crea la URL de conexión
-    dbUrl = dbUrl.concat(dbConfig.params.host , ':',  dbConfig.params.port,  '/' , dbConfig.params.database);
+    dbUrl = dbUrl.concat(dbConfig);
 
     // Usa el método connect para conectar al servidor
     MongoClient.connect(dbUrl, function(err, db){
@@ -268,7 +284,7 @@ exports.deleteDocuments = function(params, callback) {
     var dbUrl = 'mongodb://';
     var dbConfig = readJsonFile();
     // se crea la URL de conexión
-    dbUrl = dbUrl.concat(dbConfig.params.host , ':',  dbConfig.params.port,  '/' , dbConfig.params.database);
+    dbUrl = dbUrl.concat(dbConfig);
 
     // Usa el método connect para conectar al servidor
     MongoClient.connect(dbUrl, function(err, db){

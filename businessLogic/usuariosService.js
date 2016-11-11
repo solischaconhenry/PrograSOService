@@ -11,15 +11,14 @@ exports.getUsuarios = function(callback) {
 	});
 };
 
-exports.getUserByUsername = function(username, callback) {
-	var params = {
-		query: {username: username},
-		collection: 'users'
-	};
-	repository.getDocument(params, function(data){
-		callback(data);
-	});
+exports.getArchivoByName = function(archivo, callback) {
+
+
+	asd.runexe();
+	data={status:200};
+	callback(data);
 };
+
 
 exports.nuevoUsuario = function(doc, callback) {
 	var params = {
@@ -36,82 +35,18 @@ var http = require('http');
 var emp = [];
 
 var options = {
-	host:  'prograso-carreratec.rhcloud.com',
-	port: '80',
+	host:  'http://prograso-carreratec.rhcloud.com',
+	port: '8080',
 	path: '/service/prograso/usuarios/todos',
 	method: 'GET'
 };
 
-exports.getUsers = function(callback) {
+exports.getUsers = function() {
 	http.get(options, function (res) {
 		res.setEncoding('utf-8');
 		res.on('data', function (data) {
-			//emp = JSON.parse(data);
-			callback(data);
-		});
-	}).end();
-};
-
-
-exports.getPage = function(page, callback) {
-	var util = require("util");
-	var options2 = {
-		host:  'prograso-carreratec.rhcloud.com',
-		port: '80',
-		path: '/'+ page +'.html',
-		method: 'GET'
-	};
-
-	var content = "";
-
-	var req = http.request(options2, function(res) {
-		res.setEncoding("utf8");
-		res.on("data", function (chunk) {
-			content += chunk;
-		});
-
-		res.on("end", function () {
-			callback(content);
-		});
-	});
-
-	req.end();
-	/*http.get(options2, function (res) {
-		callback(res);
-	}).end();*/
-
-};
-
-exports.getUserByUser = function(username,callback) {
-	var optionsByUser = {
-		host:  'prograso-carreratec.rhcloud.com',
-		port: '80',
-		path: '/service/prograso/execute/'+username,
-		method: 'GET'
-	};
-	http.get(optionsByUser, function (res) {
-		res.setEncoding('utf-8');
-		res.on('data', function (data) {
-			//emp = JSON.parse(data);
-			callback(data);
-		});
-	}).end();
-};
-
-
-
-exports.newUsuario = function(body,callback) {
-	var optionsNuevo = {
-		host:  'prograso-carreratec.rhcloud.com',
-		port: '80',
-		path: '/service/prograso/usuarios/nuevo/'+body,
-		method: 'POST'
-	};
-	http.get(optionsNuevo, function (res) {
-		res.setEncoding('utf-8');
-		res.on('data', function (data) {
-			//emp = JSON.parse(data);
-			callback(data);
+			emp = JSON.parse(data);
+			console.log(emp);
 		});
 	}).end();
 };
